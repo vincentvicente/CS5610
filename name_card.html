@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Name Card</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .name-card {
+            width: 400px;
+            border: 5px solid black;
+            background-color: yellow;
+            text-align: left;
+            padding: 20px;
+            transition: border 0.5s;
+        }
+        .name-card:hover {
+            border-width: 10px;
+        }
+        .first-name {
+            font-weight: bold;
+            color: red;
+            font-size: 100px;
+        }
+        .first-name-rest {
+            color: orange;
+            font-size: 50px;
+        }
+        .last-name {
+            text-align: right;
+            font-weight: bold;
+            color: black;
+            font-size: 30px;
+        }
+    </style>
+</head>
+<body>
+    <div class="name-card">
+        <div>
+            <span class="first-name">Q</span><span class="first-name-rest">iyuan</span>
+        </div>
+        <div class="last-name">Zhu</div>
+    </div>
+</body>
+</html>

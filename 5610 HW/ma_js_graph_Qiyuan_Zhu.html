@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script>
+      const arrayDataStructure = [];
+      const objectDataStructure = {};
+
+      function handleClick(elmt) {
+        if (elmt.className.includes('selected')) {
+          elmt.className = 'box';
+        } else {
+          elmt.className = 'box selected';
+        }
+      }
+
+      window.addEventListener("load", () => {
+        const boxes = document.getElementsByClassName('box');
+        const gridSize = 3;
+
+        function getAdjacentIndexes(index) {
+          const adjacent = [];
+          if (index - gridSize >= 0) adjacent.push(index - gridSize);
+          if (index + gridSize < boxes.length) adjacent.push(index + gridSize);
+          if (index % gridSize !== 0) adjacent.push(index - 1);
+          if ((index + 1) % gridSize !== 0) adjacent.push(index + 1);
+          return adjacent;
+        }
+
+        for (let i = 0; i < boxes.length; i++) {
+          boxes[i].addEventListener('click', () => {
+            handleClick(boxes[i]);
+            const adjacentIndexes = getAdjacentIndexes(i);
+            adjacentIndexes.forEach(index => {
+              handleClick(boxes[index]);
+            });
+          });
+        }
+      });
+    </script>
+
+    <style>
+      .container {
+        display: grid;
+        grid-template-rows: 30% 30% 30%;
+        grid-template-columns: 30% 30% 30%;
+        height: 300px;
+        width: 300px;
+      }
+
+      .box {
+        border: 1px solid purple;
+      }
+
+      .selected {
+        background-color: blueviolet;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+    </div>
+  </body>
+</html>
